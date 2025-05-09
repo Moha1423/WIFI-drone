@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 Drone Control</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ESP32 Drone Control</h1>
+        
+        <div class="status-panel">
+            <div class="status-indicator">
+                <span>Status:</span>
+                <span id="arm-status" class="disarmed">DISARMED</span>
+            </div>
+            <button id="arm-button" class="btn arm">ARM</button>
+        </div>
+        
+        <div class="flight-data">
+            <div class="sensor-readings">
+                <h3>Orientation</h3>
+                <div class="sensor-group">
+                    <div class="sensor">
+                        <span>Pitch:</span>
+                        <span id="pitch-value">0.0°</span>
+                    </div>
+                    <div class="sensor">
+                        <span>Roll:</span>
+                        <span id="roll-value">0.0°</span>
+                    </div>
+                    <div class="sensor">
+                        <span>Yaw:</span>
+                        <span id="yaw-value">0.0°</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="motor-readings">
+                <h3>Motor Power</h3>
+                <div class="motors-grid">
+                    <div class="motor-cell">
+                        <span class="motor-label">FL</span>
+                        <div class="motor-bar-container">
+                            <div id="motor-fl" class="motor-bar"></div>
+                        </div>
+                        <span id="motor-fl-value">0%</span>
+                    </div>
+                    <div class="motor-cell">
+                        <span class="motor-label">FR</span>
+                        <div class="motor-bar-container">
+                            <div id="motor-fr" class="motor-bar"></div>
+                        </div>
+                        <span id="motor-fr-value">0%</span>
+                    </div>
+                    <div class="motor-cell">
+                        <span class="motor-label">BL</span>
+                        <div class="motor-bar-container">
+                            <div id="motor-bl" class="motor-bar"></div>
+                        </div>
+                        <span id="motor-bl-value">0%</span>
+                    </div>
+                    <div class="motor-cell">
+                        <span class="motor-label">BR</span>
+                        <div class="motor-bar-container">
+                            <div id="motor-br" class="motor-bar"></div>
+                        </div>
+                        <span id="motor-br-value">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <h3>Throttle</h3>
+                <div class="throttle-container">
+                    <input type="range" id="throttle-slider" min="0" max="100" value="0" class="slider vertical">
+                    <span id="throttle-value">0%</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <h3>Direction</h3>
+                <div class="joystick-container">
+                    <div id="joystick-area">
+                        <div id="joystick-knob"></div>
+                    </div>
+                    <div class="joystick-values">
+                        <span>Pitch: <span id="pitch-control">0</span></span>
+                        <span>Roll: <span id="roll-control">0</span></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <h3>Yaw</h3>
+                <div class="yaw-container">
+                    <input type="range" id="yaw-slider" min="-50" max="50" value="0" class="slider horizontal">
+                    <span id="yaw-value">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
